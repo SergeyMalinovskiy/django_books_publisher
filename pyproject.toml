@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "django-books-publisher"
+version = "0.1.0"
+description = ""
+authors = ["sergey.malinovskiy <sergey.malinovskiy@immelman.ru>"]
+readme = "README.md"
+packages = [{include = "django_books_publisher"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
