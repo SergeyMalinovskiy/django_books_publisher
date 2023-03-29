@@ -5,8 +5,8 @@ from author.models import Author
 # Create your models here.
 class Book(models.Model):
     class BookAuthorType:
-        MAIN_AUTHOR='main_author'
-        OTHER_AUTHOR='other_author'
+        MAIN_AUTHOR = 'main_author'
+        OTHER_AUTHOR = 'other_author'
 
     name = models.CharField(max_length=255)
     registration_code = models.CharField(max_length=255, unique=True)
@@ -17,3 +17,6 @@ class Book(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return "{} - {}".format(self.main_author, self.name)
