@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 
 from ..models import Author
 from .serializer import AuthorModelSerializer, AuthorSerializer, AuthorUpdateSerializer
+from ..repository import AuthorRepository
 
 
 class AuthorViewSet(viewsets.ModelViewSet):
@@ -57,7 +58,4 @@ class AuthorDetailView(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     def _get_author_by_id(self, pk) -> Author:
-        try:
-            return Author.objects.get(pk=pk)
-        except Author.DoesNotExist:
-            raise Http404
+        return AuthorRepository().get_by_id(pk)
